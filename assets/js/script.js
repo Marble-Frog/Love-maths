@@ -15,34 +15,41 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 } )
 
-funtction runGame() {
+/**
+ * The main game "loop", called when the script is first loaded 
+ * and after the user's answer has been processed
+ */
+function runGame() {
+
+    // Creates two random Numbers between 1 and 25
+    let num1 = Math.floor(Math.random() * 24 ) + 1
+    let num2 = Math.floor(Math.random() * 24 ) + 1
+}
+
+function checkAnswers() {
 
 }
 
-funtction checkAnswers() {
+function calculateCorrectAnswer() {
 
 }
 
-funtction calculateCorrectAnswer() {
+function incrementScore() {
 
 }
 
-funtction incrementScore() {
+function incrementWrongAnswe() {
 
 }
 
-funtction incrementWrongAnswe() {
+function displayAdditionQuestion() {
 
 }
 
-funtction displayAdditionQuestion() {
+function displaySubtractionQuestion() {
 
 }
 
-funtction displaySubtractionQuestion() {
-
-}
-
-funtction displayMultiplyQuestion() {
+function displayMultiplyQuestion() {
 
 }
