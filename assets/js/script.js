@@ -29,7 +29,7 @@ function runGame(gameType) {
     let num2 = Math.floor(Math.random() * 24 ) + 1
 
     if  (gameType === "addition") {
-        displayAdditionQuestion(num1, num2)
+        displayAdditionQuestion(num1, num2);
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
@@ -37,18 +37,20 @@ function runGame(gameType) {
 }
 
 /**
- * Checks the answer agaist the first element in
+ * Checks the answer against the first element in
  * the returned calculateCorrectAnswer array 
  */
 function checkAnswers() {
-    let userAnswer = parseInt(document.getElementById("answer-box").value) 
+    let userAnswer = parseInt(document.getElementById("answer-box").value) ;
     let calculatedAnswer = calculatedCorrectAnswer();
     let isCorrect = userAnswer === calculatedAnswer[0];
 
     if (isCorrect) {
-        alert("You did it! Congratulations! :-)")
+        alert("You did it! Congratulations! :-)");
+        incrementScore();
     } else {
-        alert(`Our servey said ITEEERRR. You answered ${userAnswer} The correct answer was ${calculatedAnswer[0]}!`)
+        alert(`Our servey said ITEEERRR. You answered ${userAnswer} The correct answer was ${calculatedAnswer[0]}!`);
+        incrementWrongAnswer();
     }
 
     runGame(calculatedAnswer[1]);
@@ -67,17 +69,24 @@ function calculatedCorrectAnswer() {
         return [operand1 + operand2, "addition"];
     } else {
         alert(`Unimplemented operator ${operator}`);
-        throw `Unimplemented operator ${operator}. Aborting!`
+        throw `Unimplemented operator ${operator}. Aborting!`;
     }
 
 }
-
+/**
+ * Gets the current score from the DOM and increments it by 1
+ */
 function incrementScore() {
-
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    document.getElementById("score").innerText = ++oldScore;
 }
 
-function incrementWrongAnswe() {
-
+/**
+ * Gets the tally of incorrect answers and increments it by 1
+ */
+function incrementWrongAnswer() {
+    let oldScore = parseInt(document.getElementById("incorrect").innerText);
+    document.getElementById("incorrect").innerText = ++oldScore;
 }
 
 function displayAdditionQuestion(operand1, operand2) {
